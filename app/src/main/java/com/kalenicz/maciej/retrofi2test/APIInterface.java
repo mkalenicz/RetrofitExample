@@ -1,31 +1,18 @@
 package com.kalenicz.maciej.retrofi2test;
 
-/**
- * Created by maciej on 02.03.2018.
- */
-
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
+import retrofit2.http.PATCH;
+import retrofit2.http.Path;
 
 interface APIInterface {
 
-//    @GET("/api/unknown")
-//    Call<MultipleResource> doGetListResources();
+    @GET("/.json")
+    Call<UserList> doGetUserList();
 
-//    @POST("/api/users")
-//    Call<User> createUser(@Body User user);
-
-    @GET("/api/users?")
-    Call<UserList> doGetUserList(@Query("page") String page);
-//    https://reqres.in/api/users?page=2
-
-    @FormUrlEncoded
-    @POST("/api/users?")
-//    first_name : "Charles"
-    Call<UserList> doCreateUserWithField(@Field("first_name") String name, @Field("last_name") String job);
+    @PATCH("/data/{number}/.json")
+    Call<User> updateUserInfo(
+            @Path("number") String number,
+            @Body User user);
 }

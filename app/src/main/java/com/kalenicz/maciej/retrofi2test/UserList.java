@@ -1,8 +1,5 @@
 package com.kalenicz.maciej.retrofi2test;
 
-/**
- * Created by maciej on 02.03.2018.
- */
 
 import com.google.gson.annotations.SerializedName;
 
@@ -11,15 +8,6 @@ import java.util.List;
 
 public class UserList {
 
-//        @SerializedName("page")
-//    public Integer page;
-//    @SerializedName("per_page")
-//    public Integer perPage;
-//    @SerializedName("total")
-//    public Integer total;
-//    @SerializedName("total_pages")
-//    public Integer totalPages;
-//
     @SerializedName("data")
     private List<Datum> data = new ArrayList();
 
@@ -32,8 +20,6 @@ public class UserList {
         @SerializedName("last_name")
         private String last_name;
 
-//        @SerializedName("avatar")
-//        public String avatar;
 
         public Integer getId() {
             return id;

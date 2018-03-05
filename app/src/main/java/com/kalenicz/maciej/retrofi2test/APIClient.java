@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 class APIClient {
 
     private static Retrofit retrofit = null;
+    static String firebaseUrl = BuildConfig.MY_FIREBASE_LINK;
 
     static Retrofit getClient() {
 
@@ -16,10 +17,11 @@ class APIClient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://reqres.in")
+                .baseUrl(firebaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
+
         return retrofit;
     }
 
